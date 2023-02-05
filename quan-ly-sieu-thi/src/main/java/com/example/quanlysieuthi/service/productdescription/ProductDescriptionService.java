@@ -5,6 +5,6 @@ import com.example.quanlysieuthi.dto.ProductDescriptionDTO;
 public interface ProductDescriptionService {
 
     ProductDescriptionDTO getInformationProduct(Long idProduct);
-
+//    void deleteProductDescription(Long id);
 
 }

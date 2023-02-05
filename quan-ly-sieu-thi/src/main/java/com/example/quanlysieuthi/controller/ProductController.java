@@ -1,7 +1,9 @@
 package com.example.quanlysieuthi.controller;
 
 import com.example.quanlysieuthi.dto.ProductDTO;
+import com.example.quanlysieuthi.dto.ProductDescriptionDTO;
 import com.example.quanlysieuthi.entity.Product;
+import com.example.quanlysieuthi.request.ProductAndDesciptionRequest;
 import com.example.quanlysieuthi.request.ProductRequest;
 import com.example.quanlysieuthi.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +31,25 @@ public class ProductController {
 
     @PostMapping("/get-product-by-name")
     public ResponseEntity<ProductDTO> getAllProductByName(@RequestBody ProductRequest productRequest){
-        return new ResponseEntity<>(productService.getProductByName(productRequest), HttpStatus.OK);
+        ProductDTO productDTO = productService.getProductByName(productRequest);
+        return new ResponseEntity<>(productDTO, HttpStatus.OK);
+    }
+
+    @PostMapping("/get-product-in-the-price-range")
+    public ResponseEntity<ProductDTO> getListProductByPrice(@RequestBody ProductRequest productRequest){
+        ProductDTO productDTO = productService.getProductByPrice(productRequest);
+        return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
     @PutMapping("/create-product")
     public ResponseEntity<Product> createProduct(@RequestBody ProductRequest productRequest){
         return new ResponseEntity<>(productService.createProduct(productRequest), HttpStatus.OK);
+    }
+
+    @PutMapping("/create-product-and-description")
+    public ResponseEntity<ProductDescriptionDTO> createProductAndDescription(@RequestBody ProductAndDesciptionRequest productAndDesciptionRequest){
+        ProductDescriptionDTO descriptionDTO = productService.createProductAndDescription(productAndDesciptionRequest);
+        return new ResponseEntity<>(descriptionDTO, HttpStatus.OK);
     }
 
     @PutMapping ("/update-product")

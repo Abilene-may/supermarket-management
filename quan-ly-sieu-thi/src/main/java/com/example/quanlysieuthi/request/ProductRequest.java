@@ -14,5 +14,7 @@ public class ProductRequest {
     private String productName;
     private Long productPrice;
     private int quantity;
-    private Long idHangSX;
+    private Long idManufacturer;
+    private Long minProductPrice;
+    private Long maxProductPrice;
 }

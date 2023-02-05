@@ -30,12 +30,9 @@ public class ProductDesciptionController {
     }
 
     @GetMapping("/information-product")
-    public ResponseEntity<ProductDescriptionDTO> getInformation(@RequestParam Long id){
-        ProductDescriptionDTO productDescriptionDTO = descriptionService.getInformationProduct(id);
+    public ResponseEntity<ProductDescriptionDTO> getInformation(@RequestParam Long idProduct){
+        ProductDescriptionDTO productDescriptionDTO = descriptionService.getInformationProduct(idProduct);
         return new ResponseEntity<>(productDescriptionDTO, HttpStatus.OK);
     }
-
-
-
 
 }

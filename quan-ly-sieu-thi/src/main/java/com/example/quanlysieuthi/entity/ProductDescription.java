@@ -26,4 +26,5 @@ public class ProductDescription {
     @OneToOne(mappedBy = "productDescription", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Product product;
+
 }

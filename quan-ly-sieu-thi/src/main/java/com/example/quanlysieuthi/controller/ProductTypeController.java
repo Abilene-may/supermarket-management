@@ -22,7 +22,7 @@ public class ProductTypeController {
         return new ResponseEntity<>(productTypeService.getAllProductType(), HttpStatus.OK);
     }
 
-    @PostMapping ("/get-list-product-type-by-name-product-type")
+    @PostMapping ("/get-list-manufacturer-by-name-product-type")
     public ResponseEntity<List<Manufacturer>> getListManufacturerByProdcutType(@RequestBody ProductTypeRequest productTypeRequest){
         return new ResponseEntity<>(productTypeService.getListManufacturerByNameProductType(productTypeRequest.getNameProductType()), HttpStatus.OK);
     }
@@ -36,7 +36,6 @@ public class ProductTypeController {
     public ResponseEntity<ProductType> updateProductType(@RequestBody ProductTypeRequest productTypeRequest){
         return new ResponseEntity<>(productTypeService.updateProductType(productTypeRequest), HttpStatus.OK);
     }
-
 
     @DeleteMapping ("/delete-product-type")
     public ResponseEntity<String> deleteProductType(@RequestParam String nameProductType){

@@ -25,12 +25,13 @@ public class ProductDescriptionServiceImpl implements ProductDescriptionService{
             throw new NotFoundException("Không tìm thấy sản phẩm id " + idProduct, 500);
         }
         Optional<ProductDescription> productDescription = productDescriptionRepository.findById(productSearch.get().getProductDescription().getIdProductDescription());
+        if(productDescription.isEmpty()){
+            throw new NotFoundException("Không tìm thấy mô tả sản phẩm id " + idProduct, 500);
+        }
         ProductDescriptionDTO descriptionDTO = new ProductDescriptionDTO();
         descriptionDTO.setProduct(productSearch.get());
         descriptionDTO.setProductDescription(productDescription.get());
         return descriptionDTO;
     }
-
-
 
 }

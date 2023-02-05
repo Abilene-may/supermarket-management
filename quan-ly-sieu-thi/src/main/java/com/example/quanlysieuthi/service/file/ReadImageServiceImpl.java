@@ -18,7 +18,6 @@ public class ReadImageServiceImpl implements ReadImageService {
         if(!Files.exists(rootDir)){
             throw new RuntimeException("Không thể đọc file : " + fileName);
         }
-
         try {
             Path file = rootDir.resolve(fileName);
             Resource resource = new UrlResource(file.toUri());

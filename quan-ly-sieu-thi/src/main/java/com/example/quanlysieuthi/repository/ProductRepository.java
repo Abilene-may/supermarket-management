@@ -15,4 +15,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "SELECT * FROM product p WHERE p.name_product = :name", nativeQuery = true)
     List<Product> findByNameProduct(String name);
 
+    @Query(value = "SELECT * FROM product WHERE product_price BETWEEN :minProductPrice AND :maxProductPrice ", nativeQuery = true)
+    List<Product> findByProductPrice(Long minProductPrice, Long maxProductPrice);
+
+    @Query(value = "SELECT MAX(product_price) FROM product", nativeQuery = true)
+    Long findMaxProductPrice();
 }
