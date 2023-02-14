@@ -1,6 +1,7 @@
 package com.example.quanlysieuthi.controller;
 
 import com.example.quanlysieuthi.dto.InvoiceDetailDTO;
+import com.example.quanlysieuthi.entity.Invoice;
 import com.example.quanlysieuthi.request.InvoiceDetailRequest;
 import com.example.quanlysieuthi.service.invoice.InvoiceService;
 import lombok.RequiredArgsConstructor;

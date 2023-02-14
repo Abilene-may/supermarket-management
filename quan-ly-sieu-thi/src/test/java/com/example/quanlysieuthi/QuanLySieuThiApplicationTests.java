@@ -23,7 +23,7 @@ class QuanLySieuThiApplicationTests {
     }
     @Test
     void testGetObject(){
-        var a = productService.getListProductByName("Bim bim swing 63g");
+        var a = productService.getListProductByNameProductAndNameProductType2("Bim bim swing 63g");
         Assertions.assertNotNull(a);
     }
 

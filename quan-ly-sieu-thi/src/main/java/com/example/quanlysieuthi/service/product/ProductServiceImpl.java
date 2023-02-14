@@ -1,5 +1,6 @@
 package com.example.quanlysieuthi.service.product;
 
+import com.example.quanlysieuthi.dto.ProductAndProductTypeDTO;
 import com.example.quanlysieuthi.dto.ProductDTO;
 import com.example.quanlysieuthi.dto.ProductDescriptionDTO;
 import com.example.quanlysieuthi.entity.Manufacturer;
@@ -74,7 +75,24 @@ public class ProductServiceImpl implements ProductService {
         return productDTO;
     }
     @Override
-    public List<Product> getListProductByName(String nameProduct) {
+    public List<ProductAndProductTypeDTO> getListProductByNameProduct(String nameProduct, String nameProductType) {
+        List<Object[]> objects = productRepository.findByNameProductOrNameProductType(nameProduct, nameProductType);
+        if(objects.isEmpty()){
+            log.info("Không tìm thấy thông tin bạn muốn tìm");
+            throw new NotFoundException("Không tìm thấy thông tin bạn muốn tìm", 500);
+        }
+        List<ProductAndProductTypeDTO> typeDTOList = new ArrayList<>();
+        for(Object[] o: objects){
+            ProductAndProductTypeDTO productTypeDTO = new ProductAndProductTypeDTO();
+            productTypeDTO.setProductName((String) o[0]);
+            productTypeDTO.setProductTypeName((String)o[1]);
+            productTypeDTO.setProductPrice((Long)o[2]);
+            typeDTOList.add(productTypeDTO);
+        }
+        return typeDTOList;
+    }
+    @Override
+    public List<Product> getListProductByNameProductAndNameProductType2(String nameProduct) {
         Specification<Product> specification =
                 (root, query, criteriaBuilder) -> {
                     List<Predicate> predicates = new ArrayList<>();
