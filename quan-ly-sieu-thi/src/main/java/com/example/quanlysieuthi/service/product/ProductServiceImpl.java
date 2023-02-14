@@ -11,15 +11,20 @@ import com.example.quanlysieuthi.repository.ProductDescriptionRepository;
 import com.example.quanlysieuthi.repository.ProductRepository;
 import com.example.quanlysieuthi.request.ProductAndDesciptionRequest;
 import com.example.quanlysieuthi.request.ProductRequest;
+import io.micrometer.common.util.StringUtils;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
@@ -67,6 +72,22 @@ public class ProductServiceImpl implements ProductService {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductList(productList);
         return productDTO;
+    }
+    @Override
+    public List<Product> getListProductByName(String nameProduct) {
+        Specification<Product> specification =
+                (root, query, criteriaBuilder) -> {
+                    List<Predicate> predicates = new ArrayList<>();
+
+                    if (StringUtils.isNotBlank(nameProduct)) {
+                        predicates.add(
+                                criteriaBuilder.like(
+                                        criteriaBuilder.lower(root.get("productName")), "%" + nameProduct + "%"));
+                    }
+                    return query.where(predicates.toArray(new Predicate[0])).getRestriction();
+                };
+        List<Product> productList = productRepository.findAll(specification);
+        return productList;
     }
 
     @Override

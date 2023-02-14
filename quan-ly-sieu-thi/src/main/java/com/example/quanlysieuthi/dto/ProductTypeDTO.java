@@ -17,4 +17,5 @@ public class ProductTypeDTO {
     private List<Manufacturer> manufacturers;
     private int numOfManufacturer;    // số lượng hãng sãn xuất theo loại sản phẩm
 
+
 }

@@ -40,6 +40,17 @@ public class ProductController {
         ProductDTO productDTO = productService.getProductByPrice(productRequest);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
+    @GetMapping("/get-information-product")
+    public ResponseEntity<List<ProductAndProductTypeDTO>> getInformationProduct(@RequestParam(required = false) String
+                                                                                        nameProduct,@RequestParam(required = false) String nameProductType){
+        List<ProductAndProductTypeDTO> typeDTOList = productService.getListProductByNameProductAndNameProductType(nameProduct, nameProductType);
+        return new ResponseEntity<>(typeDTOList, HttpStatus.OK);
+    }
+    @GetMapping("/get-all-product-by-name")
+    public List<Product> getListProductByName(@RequestParam String nameProduct){
+        List<Product> productList = productService.getListProductByName(nameProduct);
+        return productList;
+    }
 
     @PutMapping("/create-product")
     public ResponseEntity<Product> createProduct(@RequestBody ProductRequest productRequest){

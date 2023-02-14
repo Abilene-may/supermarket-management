@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,8 +31,9 @@ public class Customer {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "customer", orphanRemoval = true)
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name = "customer_id_customer")
     @JsonIgnore
-    private Set<Invoice> invoices = new LinkedHashSet<>();
+    private List<Invoice> invoices = new ArrayList<>();
 
 }

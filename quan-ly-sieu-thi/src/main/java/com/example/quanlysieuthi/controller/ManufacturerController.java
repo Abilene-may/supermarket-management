@@ -3,6 +3,7 @@ package com.example.quanlysieuthi.controller;
 import com.example.quanlysieuthi.entity.Manufacturer;
 import com.example.quanlysieuthi.request.ManufacturerRequest;
 import com.example.quanlysieuthi.service.manufacturer.ManufacturerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/manufacturer")
 public class ManufacturerController {
 
-    @Autowired
-    private ManufacturerService manufacturerService;
+    private final ManufacturerService manufacturerService;
 
     @GetMapping("/get-all-manufacturer")
     public ResponseEntity<List<Manufacturer>> getAllManufacturer(){
