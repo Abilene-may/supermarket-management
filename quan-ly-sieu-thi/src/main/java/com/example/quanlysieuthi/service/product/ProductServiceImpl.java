@@ -75,6 +75,18 @@ public class ProductServiceImpl implements ProductService {
         return productDTO;
     }
     @Override
+    public Specification<Product> getListProductByName(String productName) {
+        return (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+            if (StringUtils.isNotBlank(productName)) {
+                predicates.add(
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("productName")), "%" + productName + "%"));
+            }
+            return query.where(predicates.toArray(new Predicate[0])).getRestriction();
+        };
+    }
+    @Override
     public List<ProductAndProductTypeDTO> getListProductByNameProduct(String nameProduct, String nameProductType) {
         List<Object[]> objects = productRepository.findByNameProductOrNameProductType(nameProduct, nameProductType);
         if(objects.isEmpty()){
@@ -92,20 +104,23 @@ public class ProductServiceImpl implements ProductService {
         return typeDTOList;
     }
     @Override
-    public List<Product> getListProductByNameProductAndNameProductType2(String nameProduct) {
+    public List<Product> getListProductByNameProductAndProductPrice(String nameProduct, Long productPrice) {
         Specification<Product> specification =
                 (root, query, criteriaBuilder) -> {
                     List<Predicate> predicates = new ArrayList<>();
-
                     if (StringUtils.isNotBlank(nameProduct)) {
                         predicates.add(
                                 criteriaBuilder.like(
                                         criteriaBuilder.lower(root.get("productName")), "%" + nameProduct + "%"));
                     }
+                    if (productPrice != null){
+                        predicates.add(
+                                criteriaBuilder.greaterThanOrEqualTo(root.get("productPrice"), productPrice )
+                        );
+                    }
                     return query.where(predicates.toArray(new Predicate[0])).getRestriction();
                 };
-        List<Product> productList = productRepository.findAll(specification);
-        return productList;
+        return productRepository.findAll(specification);
     }
 
     @Override

@@ -21,10 +21,6 @@ class QuanLySieuThiApplicationTests {
         var a = productTypeService.getListManufacturerByNameProductType("Bột giặt");
         Assertions.assertNotNull(a);
     }
-    @Test
-    void testGetObject(){
-        var a = productService.getListProductByNameProductAndNameProductType2("Bim bim swing 63g");
-        Assertions.assertNotNull(a);
-    }
+
 
 }

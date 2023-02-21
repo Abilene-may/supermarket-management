@@ -11,8 +11,6 @@ dquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/producttype/Pr
 ^quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/controller/ProductTypeController.java,7\a\7ac8bacf93a81ad6477f3270e5387c1cd6c8485e
 ö
 jquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/manufacturer/ManufacturerServiceImpl.java,2\4\24db13d3958fb01f46dc9b75d6ab793cd0862391
-ä
-Zquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/repository/ProductRepository.java,e\3\e396087fd6d71669e36ace4a541f18ebebbe387d
 ã
 [quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/file/ReadImageService.java,c\8\c84250622b7bb45f2e94c5f88b8629e44a47bb42
 è
@@ -21,8 +19,6 @@ _quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/file/ReadImage
 rquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/productdescription/ProductDescriptionService.java,c\3\c32623536343bc15e2585dd43a23a5cbea6d5ae2
 }
 Mquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/entity/Customer.java,b\c\bcd2fbfccce928ba351277c3652dab39a8103fe3
-å
-\quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/product/ProductService.java,b\4\b420309837deb3c5c4c5d120dfd4d994ae01e74f
 Ä
 Pquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/dto/ProductTypeDTO.java,9\c\9cabdd5fd46241e22394f248b4bd113bce3f53af
 |
@@ -38,4 +34,16 @@ Qquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/entity/Manufacturer.ja
 î
 dquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/controller/ProductDesciptionController.java,6\8\689a6a6da9a72f1defe10e270fa4436a702bc68e
 ä
+Zquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/controller/InvoiceController.java,c\f\cf1b4f16b512b576866a9c45b65e5a88afd18605
+ä
+Zquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/dto/ProductAndProductTypeDTO.java,2\3\2390fc79358ff448a8ba20e1d91fffa538198ef5
+ä
+Zquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/repository/ProductRepository.java,e\3\e396087fd6d71669e36ace4a541f18ebebbe387d
+ã
+[quan-ly-sieu-thi/src/test/java/com/example/quanlysieuthi/QuanLySieuThiApplicationTests.java,1\5\154787efc8a7236c1f172501514dd34e26f7dad3
+ä
 Zquan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/controller/ProductController.java,1\0\10e6df323a9b02559ba71a3fcf475ad35cb6162d
+å
+\quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/product/ProductService.java,b\4\b420309837deb3c5c4c5d120dfd4d994ae01e74f
+ê
+`quan-ly-sieu-thi/src/main/java/com/example/quanlysieuthi/service/product/ProductServiceImpl.java,7\8\78b2e3f5bb06903a056af18fe1108e3f96a6d1f8
