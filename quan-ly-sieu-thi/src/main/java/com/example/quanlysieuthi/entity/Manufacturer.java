@@ -38,5 +38,4 @@ public class Manufacturer {
     @ManyToMany(mappedBy = "manufacturers", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<ProductType> productTypes = new LinkedHashSet<>();
-
 }

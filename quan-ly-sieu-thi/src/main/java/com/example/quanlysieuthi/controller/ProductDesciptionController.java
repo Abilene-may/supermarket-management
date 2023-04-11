@@ -15,24 +15,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/product-description")
 public class ProductDesciptionController {
-    @Autowired
-    private ReadImageService readImageService;
-    @Autowired
-    private ProductDescriptionService descriptionService;
 
-    @GetMapping("/image")
-    public ResponseEntity<byte[]> getImg(){
-        byte[] bytes = readImageService.readFile("banh_oishi.png");
-        return ResponseEntity
-                .ok()
-                .contentType(MediaType.IMAGE_JPEG)
-                .body(bytes);
-    }
+  @Autowired
+  private ReadImageService readImageService;
+  @Autowired
+  private ProductDescriptionService descriptionService;
 
-    @GetMapping("/information-product")
-    public ResponseEntity<ProductDescriptionDTO> getInformation(@RequestParam Long idProduct){
-        ProductDescriptionDTO productDescriptionDTO = descriptionService.getInformationProduct(idProduct);
-        return new ResponseEntity<>(productDescriptionDTO, HttpStatus.OK);
-    }
+  @GetMapping("/image")
+  public ResponseEntity<byte[]> getImg() {
+    byte[] bytes = readImageService.readFile("banh_oishi.png");
+    return ResponseEntity
+        .ok()
+        .contentType(MediaType.IMAGE_JPEG)
+        .body(bytes);
+  }
+
+  @GetMapping("/information-product")
+  public ResponseEntity<ProductDescriptionDTO> getInformation(@RequestParam Long idProduct) {
+    ProductDescriptionDTO productDescriptionDTO = descriptionService.getInformationProduct(
+        idProduct);
+    return new ResponseEntity<>(productDescriptionDTO, HttpStatus.OK);
+  }
 
 }
