@@ -16,7 +16,8 @@ public interface ProductRepository extends JpaSpecificationExecutor<Product>,
       nativeQuery = true)
   List<Product> findByNameProduct(String name);
 
-  @Query(value = "SELECT * FROM product WHERE product_price BETWEEN :minProductPrice AND :maxProductPrice"
+  @Query(value = "SELECT * FROM product\n" 
+         + "WHERE product_price BETWEEN :minProductPrice AND :maxProductPrice"
       ,nativeQuery = true)
   List<Product> findByProductPrice(Long minProductPrice, Long maxProductPrice);
 
