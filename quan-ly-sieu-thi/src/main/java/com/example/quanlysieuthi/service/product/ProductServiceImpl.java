@@ -39,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
 
   @Override
   public Product getProductByID(Long id) {
-    Optional<Product> product = productRepository.findById(id);
+      Optional<Product> product = productRepository.findByIdProduct(id);
     if (product.isEmpty()) {
       throw new NotFoundException("Không tìm thấy id = " + id, 500);
     }

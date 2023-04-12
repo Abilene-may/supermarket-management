@@ -10,6 +10,7 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
+    Customer findByIdCustomer(Long idCustomer);
     @Query(value = "SELECT * FROM customer WHERE phone_number = :phoneNumber", nativeQuery = true)
     Optional<Customer> findByPhoneNumber(String phoneNumber);
 

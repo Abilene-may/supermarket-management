@@ -2,6 +2,7 @@ package com.example.quanlysieuthi.repository;
 
 import com.example.quanlysieuthi.entity.Product;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaSpecificationExecutor<Product>,
     JpaRepository<Product, Long> {
-
+  Optional<Product> findByIdProduct(Long idProduct);
   @Query(value = "SELECT * FROM product p WHERE p.name_product = :name",
       nativeQuery = true)
   List<Product> findByNameProduct(String name);
