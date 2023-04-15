@@ -25,8 +25,3 @@ git clone https://github.com/Abilene-may/supermarket-management.git
 5. Chạy file `src/main/java/com/example/quanlysieuthi/QuanLySieuThiApplication.java/` để khởi động project
 
 6. Mở postman và truy cập địa chỉ http://localhost:8080 để test project.
-
-## Liên hệ
-Tác giả: Nguyễn Thị Nga
-
-Email: ngachann02@gmail.com
