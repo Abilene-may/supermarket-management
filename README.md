@@ -2,7 +2,7 @@
 
 ## Mô tả dự án
 
-Dự án này được tạo ra nhằm mục đích tổng hợp các kiến thức đã học và thực hành trong quá trình thực tập. Đây là một project quản lý siêu thị nhỏ có các chức năng sau:
+Dự án này được tạo ra nhằm mục đích tổng hợp các kiến thức đã học và thực hành trong quá trình học Spring Boot. Đây là một project quản lý siêu thị nhỏ có các chức năng sau:
 
 ## Các chức năng
 - Thêm, sửa, xóa sản phẩm
